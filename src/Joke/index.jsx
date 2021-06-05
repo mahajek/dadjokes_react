@@ -15,30 +15,32 @@ export const Joke = (props) => {
 
   return (
     <div className="joke">
-      <div className="joke__body">
-        <div className="joke__user">
-          <img className="user-avatar" src={props.userAvatar} />
-          <p className="user-name">{props.userName}</p>
+      <div className={upLikes > downLikes ? 'joke' : 'joke joke--not-funny'}>
+        <div className="joke__body">
+          <div className="joke__user">
+            <img className="user-avatar" src={props.userAvatar} />
+            <p className="user-name">{props.userName}</p>
+          </div>
+          <p className="joke__text">{props.text}</p>
         </div>
-        <p className="joke__text">{props.text}</p>
-      </div>
-      <div className="joke__likes">
-        <button
-          id="btn-up"
-          className="btn-like btn-like--up"
-          onClick={handleClickUp}
-        ></button>
-        <span id="likes-up" className="likes-count likes-count--up">
-          {upLikes}
-        </span>
-        <button
-          id="btn-down"
-          className="btn-like btn-like--down"
-          onClick={handleClickDown}
-        ></button>
-        <span id="likes-down" className="likes-count likes-count--down">
-          {downLikes}
-        </span>
+        <div className="joke__likes">
+          <button
+            id="btn-up"
+            className="btn-like btn-like--up"
+            onClick={handleClickUp}
+          ></button>
+          <span id="likes-up" className="likes-count likes-count--up">
+            {upLikes}
+          </span>
+          <button
+            id="btn-down"
+            className="btn-like btn-like--down"
+            onClick={handleClickDown}
+          ></button>
+          <span id="likes-down" className="likes-count likes-count--down">
+            {downLikes}
+          </span>
+        </div>
       </div>
     </div>
   );
